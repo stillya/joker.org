@@ -1,13 +1,14 @@
 package org.github.joker.controllers;
 
 import java.util.List;
-import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.github.joker.dto.JokeDto;
 import org.github.joker.services.interfaces.Jokes;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,24 +20,27 @@ public class JokesController {
     Jokes jokes;
 
     @GetMapping
-    public Map<String, Integer> getJoke() {
+    public JokeDto getJoke() {
         this.log.info("Get joke");
-        return jokes.getJoke();
+        return this.jokes.getJoke();
     }
 
     @GetMapping(path = "/like")
-    public void likeJoke(Integer jokeId) {
-
+    public void likeJoke(@RequestParam Integer jokeId) {
+        this.log.info("like joke");
+        this.jokes.likeJoke(jokeId.intValue());
     }
 
     @GetMapping(path = "/dislike")
-    public void dislikeJoke(Integer jokeId) {
-
+    public void dislikeJoke(@RequestParam Integer jokeId) {
+        this.log.info("Get joke");
+        this.jokes.dislikeJoke(jokeId.intValue());
     }
 
     @GetMapping(path = "/top")
-    public List<Map<String, Integer>> getTopJokes() {
-        return null;
+    public List<JokeDto> getTopJokes() {
+        this.log.info("Get joke");
+        return this.jokes.getTopJokes();
     }
 
 

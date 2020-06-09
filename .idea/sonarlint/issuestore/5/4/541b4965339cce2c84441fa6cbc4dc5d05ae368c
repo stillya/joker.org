@@ -1,0 +1,17 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ºÖÛÕþÿÿÿÿ
+G
+java:S1612",Replace this lambda with a method reference.(ºÒÿ„ÿÿÿÿÿ
+G
+java:S1612",Replace this lambda with a method reference.(ºÒÿ„ÿÿÿÿÿ
+w
+java:S1488"\Immediately return this expression instead of assigning it to the temporary variable "joke".(ºÒÿ„ÿÿÿÿÿ
+I
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
+—
+java:S1186!"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ƒÐ‚è
+—
+java:S1186&"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›òÒø
+r	java:S116"XRename this field "URL_JOKES_API" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆðÂ™üÿÿÿÿ
+@
+java:S1168,"+Return an empty collection instead of null.(°Ñ£)

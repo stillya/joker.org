@@ -1,12 +1,9 @@
 package org.github.joker.services.Impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.github.joker.dto.JokeDto;
+import org.github.joker.services.crud.JdbcJokeRepository;
 import org.github.joker.services.interfaces.Jokes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,27 +18,41 @@ public class JokesImpl implements Jokes {
 
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    JdbcJokeRepository jdbcJokeRepository;
 
     @Override
-    public Map<String, Integer> getJoke() {
-        Stream<JokeDto> jokeStream = Stream.of(restTemplate.getForObject(URL_JOKES_API, JokeDto.class));
-        Map<String, Integer> joke = jokeStream.collect(Collectors.toMap(p->p.getJoke(), t->t.getId()));
-        return joke;
+    public JokeDto getJoke() {
+        JokeDto jokeDto = restTemplate.getForObject(URL_JOKES_API, JokeDto.class);
+        return jokeDto;
     }
 
     @Override
-    public void likeJoke(Integer jokeId) {
-
+    public void likeJoke(int jokeId) {
+        if (jdbcJokeRepository.count(jokeId) == 0) {
+            saveJoke(jokeId);
+        }
+        jdbcJokeRepository.incrementVote(jokeId);
     }
 
     @Override
-    public void dislikeJoke(Integer jokeId) {
-
+    public void dislikeJoke(int jokeId) {
+        if (jdbcJokeRepository.count(jokeId) == 0) {
+            saveJoke(jokeId);
+        }
+        jdbcJokeRepository.decrementVote(jokeId);
     }
 
     @Override
-    public List<Map<String, Integer>> getTopJokes() {
-        return null;
+    public List<JokeDto> getTopJokes() {
+        return jdbcJokeRepository.findFirst(5);
+
+    }
+
+    private void saveJoke(int jokeId) {
+        JokeDto jokeDto = restTemplate.getForObject(URL_JOKES_API + "&idRange=" + jokeId, JokeDto.class);
+        jokeDto.setVotes((long) 0);
+        jdbcJokeRepository.save(jokeDto);
     }
 
 }
