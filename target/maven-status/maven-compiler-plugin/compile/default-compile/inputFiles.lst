@@ -1,0 +1,9 @@
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/services/Impl/JokesImpl.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/services/interfaces/Jokes.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/dto/JokeDto.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/repositories/JokeRepository.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/controllers/JokesController.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/services/crud/JdbcJokeRepository.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/configurations/RestTemplateConfiguration.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/JokerApplication.java
+/Users/stillya/code/java/stillya/joker.org/src/main/java/org/github/joker/controllers/AppController.java

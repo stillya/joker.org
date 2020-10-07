@@ -2,7 +2,7 @@ package org.github.joker.controllers;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.github.joker.dto.JokeDto;
 import org.github.joker.services.interfaces.Jokes;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/jokes")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class JokesController {
 
-    Jokes jokes;
+    private final Jokes jokes;
 
     @GetMapping
     public JokeDto getJoke() {
@@ -42,7 +42,5 @@ public class JokesController {
         this.log.info("Get joke");
         return this.jokes.getTopJokes();
     }
-
-
 
 }
