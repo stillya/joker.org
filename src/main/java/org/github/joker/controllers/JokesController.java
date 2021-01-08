@@ -27,19 +27,19 @@ public class JokesController {
 
     @GetMapping(path = "/like")
     public void likeJoke(@RequestParam Integer jokeId) {
-        this.log.info("like joke");
+        this.log.info("Like joke");
         this.jokes.likeJoke(jokeId.intValue());
     }
 
     @GetMapping(path = "/dislike")
     public void dislikeJoke(@RequestParam Integer jokeId) {
-        this.log.info("Get joke");
+        this.log.info("Dislike joke");
         this.jokes.dislikeJoke(jokeId.intValue());
     }
 
     @GetMapping(path = "/top")
     public List<JokeDto> getTopJokes() {
-        this.log.info("Get joke");
+        this.log.info("Get top jokes");
         return this.jokes.getTopJokes();
     }
 
