@@ -1,7 +1,7 @@
 # JOKER.ORG
-It's REST-API for programming jokes where you can like, dislike and get tops of jokes.
+Platform offers a collection of hilarious programming jokes that can be sorted by popularity based on user ratings. With the ability to like or dislike jokes
 
 # Plans:
-* Add front-end
-* Transfer to noSql DB
+* Add frontend
+* Transfer to nosql-DB
 
